@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BrightStart HTML + CSS</title>
+    <link rel="stylesheet" href="/src/styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">10-minute web lessons</p>
+        </div>
+        <div class="topbar-actions">
+          <button class="ghost-button theme-button" id="themeToggle" type="button" aria-label="Switch to dark theme" aria-pressed="false"></button>
+          <button class="ghost-button icon-button" id="resetProgress" type="button" aria-label="Reset progress">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 6h18"></path>
+              <path d="M8 6V4h8v2"></path>
+              <path d="M19 6l-1 14H6L5 6"></path>
+              <path d="M10 11v5"></path>
+              <path d="M14 11v5"></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="status-panel" aria-label="Course progress">
+          <div class="progress-summary">
+            <div>
+              <span class="small-label">Progress</span>
+              <strong id="progressText">0 of 0 lessons</strong>
+            </div>
+            <div>
+              <span class="small-label">XP</span>
+              <strong id="xpText">0</strong>
+            </div>
+            <div>
+              <span class="small-label">Streak</span>
+              <strong id="streakText">0 sessions</strong>
+            </div>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div id="progressBar" class="progress-bar"></div>
+          </div>
+          <div id="badgeShelf" class="badge-shelf" aria-label="Earned badges"></div>
+        </section>
+
+        <section class="course-layout">
+          <aside class="module-list" aria-label="Course modules">
+            <div class="module-list-header">
+              <span class="small-label">Course map</span>
+              <button id="startNext" class="primary-button" type="button">Start next 10-minute lesson</button>
+            </div>
+            <div id="moduleList"></div>
+          </aside>
+
+          <section class="lesson-workspace" aria-label="Current lesson">
+            <div class="lesson-card">
+              <div class="lesson-meta">
+                <span id="moduleName" class="module-pill">Module</span>
+                <span id="lessonTime">10 min</span>
+              </div>
+              <h2 id="lessonTitle">Choose a lesson</h2>
+              <p id="lessonExplanation"></p>
+              <div class="task-box">
+                <div class="task-heading">
+                  <span>Try this</span>
+                  <button id="hintButton" class="text-button" type="button">Need a hint?</button>
+                </div>
+                <ul id="taskList" class="task-list"></ul>
+                <p id="hintText" class="hint-text" hidden></p>
+              </div>
+              <details id="referenceDrawer" class="reference-drawer">
+                <summary>
+                  <span>Learn deeper</span>
+                  <span class="summary-note">Optional references</span>
+                </summary>
+                <div id="referenceList" class="reference-list"></div>
+              </details>
+              <div id="feedback" class="feedback" role="status" aria-live="polite">Make a small change, then check your work.</div>
+              <div class="lesson-actions">
+                <button id="checkWork" class="primary-button" type="button">Check work</button>
+                <button id="completeLesson" class="success-button" type="button" disabled>Complete lesson</button>
+                <button id="resetLesson" class="ghost-button" type="button">Reset lesson</button>
+                <button id="nextLesson" class="ghost-button" type="button">Next lesson</button>
+              </div>
+            </div>
+
+            <div class="practice-grid">
+              <section class="code-panel" aria-label="Code editor">
+                <div class="panel-header">
+                  <h3>Your code</h3>
+                  <span id="savedState">Saved on this device</span>
+                </div>
+                <textarea id="codeEditor" spellcheck="false" aria-label="Edit lesson code"></textarea>
+              </section>
+
+              <section class="preview-panel" aria-label="Live preview">
+                <div class="panel-header">
+                  <h3>Live preview</h3>
+                  <span>Updates as you type</span>
+                </div>
+                <div class="preview-controls" aria-label="Preview size controls">
+                  <div class="preview-presets" role="group" aria-label="Preview width presets">
+                    <button id="previewMobile" class="size-button" type="button" data-preview-width="360">Mobile</button>
+                    <button id="previewTablet" class="size-button" type="button" data-preview-width="768">Tablet</button>
+                    <button id="previewDesktop" class="size-button active" type="button" data-preview-width="1000">Desktop</button>
+                  </div>
+                  <label class="preview-slider">
+                    <span id="previewWidthLabel">Preview width: 1000px</span>
+                    <input id="previewWidth" type="range" min="320" max="1000" step="10" value="1000">
+                  </label>
+                </div>
+                <div class="preview-stage">
+                  <iframe id="previewFrame" title="Live preview of your page"></iframe>
+                </div>
+                <section id="consolePanel" class="console-panel" aria-label="Console output" hidden>
+                  <div class="console-header">
+                    <h3>Console output</h3>
+                    <span>Logs from your JavaScript</span>
+                  </div>
+                  <pre id="consoleOutput" class="console-output">Logs will show here.</pre>
+                </section>
+              </section>
+            </div>
+          </section>
+        </section>
+      </main>
+
+      <dialog id="breakDialog" class="break-dialog">
+        <h2>You finished a lesson</h2>
+        <p>You changed the page and earned XP. Take a quick break, or keep going while the idea is fresh.</p>
+        <div class="dialog-actions">
+          <button id="closeBreak" class="ghost-button" type="button">Take a break</button>
+          <button id="continueLearning" class="primary-button" type="button">Continue</button>
+        </div>
+      </dialog>
+    </div>
+
+    <script type="module" src="/src/app.js"></script>
+  </body>
+</html>
