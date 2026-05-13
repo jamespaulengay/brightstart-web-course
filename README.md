@@ -20,13 +20,13 @@ Then open the local URL printed by Vite.
 
 ## Deploy to GitHub Pages
 
-This project includes a GitHub Actions workflow at `.github/workflows/deploy.yml`.
+Build the app, then publish the `dist/` folder to a `gh-pages` branch.
 
-1. Push the project to a public GitHub repository on the `main` branch.
-2. In GitHub, open the repository settings.
-3. Go to **Pages**.
-4. Set **Source** to **GitHub Actions**.
-5. The workflow will build the Vite app and deploy `dist/`.
+```bash
+yarn build
+```
+
+In GitHub repository settings, set **Pages** to deploy from the `gh-pages` branch.
 
 ## Project Structure
 
