@@ -20,13 +20,7 @@ Then open the local URL printed by Vite.
 
 ## Deploy to GitHub Pages
 
-Build the app, then publish the `dist/` folder to a `gh-pages` branch.
-
-```bash
-yarn build
-```
-
-In GitHub repository settings, set **Pages** to deploy from the `gh-pages` branch.
+See [DEPLOYMENT.md](DEPLOYMENT.md) for step-by-step GitHub Pages instructions.
 
 ## Project Structure
 
